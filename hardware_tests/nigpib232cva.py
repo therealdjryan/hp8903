@@ -19,8 +19,7 @@ import time
 
 def main(dev_name):
         
-    s = serial.Serial(dev_name,
-                      38400,
+    s = serial.Serial(dev_name,                      38400,
                       bytesize = serial.SEVENBITS,
                       stopbits = serial.STOPBITS_ONE,
                       parity = serial.PARITY_NONE)
