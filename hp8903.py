@@ -1,4 +1,9 @@
-#!/usr/bin/python3.10
+#!/bin/env python
+import sys
+MIN_PYTHON = (3, 10)
+if sys.version_info < MIN_PYTHON:
+    sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
+
 import serial
 import gi
 from serial.tools import list_ports
