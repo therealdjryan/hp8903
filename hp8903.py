@@ -853,9 +853,10 @@ class HP8903BWindow(Gtk.Window):
         model = self.device_combo.get_model()
 
         tree_iter = self.device_combo.get_active_iter()
-
-        print("Device: %s" % model[tree_iter][1])
+        print(f"model: {model}")
+        print(f"iter: {tree_iter}")
         dev_name = model[tree_iter][1]
+        print(f"Device: {dev_name}")
 
         # Disable gpib and devices buttons
         self.con_button.set_sensitive(False)
