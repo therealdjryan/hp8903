@@ -1,21 +1,18 @@
 #!/bin/env python
-import sys
-import serial
-import gi
 from serial.tools import list_ports
-
-gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
+import serial
+import gi
+
+gi.require_version("Gtk", "3.0")
 
 import math
 import numpy as np
 import time
 from datetime import datetime
-
 
 UI_INFO = """
 <ui>
@@ -139,7 +136,6 @@ class NI_GPIB_232CV_A(GPIBDevice):
                                  stopbits=serial.tools.serialutil.STOPBITS_ONE,
                                  parity=serial.tools.serialutil.PARITY_NONE,
                                  timeout=0)
-
 
         if (self.is_open()):
             self.ser.flushInput()
@@ -267,10 +263,10 @@ class Galvant_GPIB_USB(GPIBDevice):
         print("Connecting to: %s" % self.dev_name)
 
         self.ser = serial.Serial(self.dev_name,
-                          self.baud,
-                          bytesize=serial.serialutil.EIGHTBITS,
-                          stopbits=serial.serialutil.STOPBITS_ONE,
-                          parity=serial.serialutil.PARITY_NONE)
+                                 self.baud,
+                                 bytesize=serial.serialutil.EIGHTBITS,
+                                 stopbits=serial.serialutil.STOPBITS_ONE,
+                                 parity=serial.serialutil.PARITY_NONE)
 
         if (self.is_open()):
             self.ser.flushInput()
@@ -850,6 +846,7 @@ class HP8903BWindow(Gtk.Window):
             print("    address setting, check your hardware's settings!")
 
         # Get device info
+
         model = self.device_combo.get_model()
 
         tree_iter = self.device_combo.get_active_iter()
@@ -994,17 +991,17 @@ class HP8903BWindow(Gtk.Window):
         stopf = self.stop_freq.get_value()
 
         num_steps = self.steps.get_value_as_int()
-        step_size = 10 ** (1.0 / num_steps)
-
-        strt_dec = math.floor(math.log10(strtf))
-        stop_dec = math.floor(math.log10(stopf))
+        # step_size = 10 ** (1.0 / num_steps)
+        #
+        # strt_dec = math.floor(math.log10(strtf))
+        # stop_dec = math.floor(math.log10(stopf))
 
         meas = self.meas_combo.get_active()
         units = self.units_combo.get_active()
 
         lsteps = []
         vsteps = []
-        if ((meas < 4) and (meas >= 0)):
+        if (meas < 4) and (meas >= 0):
             decs = math.log10(stopf / strtf)
             npoints = int(decs * num_steps)
 
