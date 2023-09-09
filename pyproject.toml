@@ -1,0 +1,21 @@
+[project]
+name = "hp8903"
+requires-python = ">=3.7"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "contourpy",
+    "cycler",
+    "fonttools",
+    "kiwisolver",
+    "numpy",
+    "packaging",
+    "Pillow",
+    "pycairo",
+    "pyparsing",
+    "python-dateutil",
+    "six",
+]
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
