@@ -1,9 +1,5 @@
 #!/bin/env python
 import sys
-MIN_PYTHON = (3, 10)
-if sys.version_info < MIN_PYTHON:
-    sys.exit("Python %s.%s or later is required.\n" % MIN_PYTHON)
-
 import serial
 import gi
 from serial.tools import list_ports
@@ -139,10 +135,10 @@ class NI_GPIB_232CV_A(GPIBDevice):
         print("Connecting to: %s" % self.dev_name)
 
         self.ser = serial.Serial(self.dev_name, self.baud,
-                          bytesize=serial.tools.serialutil.SEVENBITS,
-                          stopbits=serial.tools.serialutil.STOPBITS_ONE,
-                          parity=serial.tools.serialutil.PARITY_NONE,
-                          timeout=0)
+                                 bytesize=serial.tools.serialutil.SEVENBITS,
+                                 stopbits=serial.tools.serialutil.STOPBITS_ONE,
+                                 parity=serial.tools.serialutil.PARITY_NONE,
+                                 timeout=0)
 
 
         if (self.is_open()):
@@ -169,7 +165,7 @@ class NI_GPIB_232CV_A(GPIBDevice):
 
     def write(self, data):
         if (self.is_open()):
-            ret = self.ser.write(data)
+            ret = self.ser.write(data.encode('ascii'))
         else:
             # Error!
             print("%s failed write" % self.name())
@@ -328,7 +324,7 @@ class Galvant_GPIB_USB(GPIBDevice):
         data += "\n"
 
         if (self.is_open()):
-            ret = self.ser.write(data)
+            ret = self.ser.write(data.encode('ascii'))
         else:
             # Error!
             print("%s failed write" % self.name())
