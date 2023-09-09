@@ -1,11 +1,11 @@
 #!/bin/env python
+import serial
+import gi
 from serial.tools import list_ports
 from gi.repository import Gtk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
-import serial
-import gi
 
 gi.require_version("Gtk", "3.0")
 
@@ -850,10 +850,7 @@ class HP8903BWindow(Gtk.Window):
         model = self.device_combo.get_model()
 
         tree_iter = self.device_combo.get_active_iter()
-        print(f"model: {model}")
-        print(f"iter: {tree_iter}")
         dev_name = model[tree_iter][1]
-        print(f"Device: {dev_name}")
 
         # Disable gpib and devices buttons
         self.con_button.set_sensitive(False)
