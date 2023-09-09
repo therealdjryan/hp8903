@@ -10,9 +10,6 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
 
-from datetime import datetime
-
-
 import math
 import numpy as np
 import time
