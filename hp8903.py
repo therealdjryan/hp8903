@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3.7
 import serial
 import gi
 from serial.tools import list_ports
