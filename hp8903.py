@@ -132,9 +132,9 @@ class NI_GPIB_232CV_A(GPIBDevice):
         print("Connecting to: %s" % self.dev_name)
 
         self.ser = serial.Serial(self.dev_name, self.baud,
-                                 bytesize=serial.tools.serialutil.SEVENBITS,
-                                 stopbits=serial.tools.serialutil.STOPBITS_ONE,
-                                 parity=serial.tools.serialutil.PARITY_NONE,
+                                 bytesize=serial.SEVENBITS,
+                                 stopbits=serial.STOPBITS_ONE,
+                                 parity=serial.PARITY_NONE,
                                  timeout=0)
 
         if (self.is_open()):
