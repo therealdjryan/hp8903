@@ -797,7 +797,7 @@ class HP8903BWindow(Gtk.Window):
 
         self.canvas = FigureCanvas(self.f)
 
-        toolbar = NavigationToolbar(self.canvas, self)
+        toolbar = NavigationToolbar(self.canvas)
 
         plot_vbox = Gtk.Box(spacing=2, orientation='vertical')
         plot_vbox.pack_start(self.canvas, True, True, 0)
