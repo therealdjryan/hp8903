@@ -1,13 +1,13 @@
-#!/bin/env python3.7
+#!/bin/env python3
 import serial
 import gi
 from serial.tools import list_ports
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_gtk3cairo import FigureCanvasGTK3Cairo as FigureCanvas
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
 
-gi.require_version("Gtk", "3.0")
 
 import math
 import numpy as np
