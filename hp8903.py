@@ -116,7 +116,7 @@ class GPIBDevice():
 
 
 class NI_GPIB_232CV_A(GPIBDevice):
-    def __init__(self, gpib_addr=None):
+    def __init__(self, gpib_addr=28):
         # Address on this device only set by dip switches (lame!)
 
         self.dev_name = None
@@ -419,8 +419,8 @@ class Galvant_GPIB_USB(GPIBDevice):
 
 
 # Add thisto HP8903BWindow
-HP8903_GPIB_devices = [(Galvant_GPIB_USB, "Galvant GPIB USB Adapter"),
-                       (NI_GPIB_232CV_A, "National Instruments GPIB-232CV-A")]
+HP8903_GPIB_devices = [(NI_GPIB_232CV_A, "National Instruments GPIB-232CV-A"),
+                       (Galvant_GPIB_USB, "Galvant GPIB USB Adapter")]
 
 
 class HP8903BWindow(Gtk.Window):
